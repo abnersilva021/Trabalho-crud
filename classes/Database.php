@@ -1,7 +1,7 @@
 <?php
     class Database {
         private $host = "localhost";
-        private $dbName = "bdCrud";
+        private $dbname = "bdcrud";
         private $username = "root";
 
         private $password = "";
@@ -11,8 +11,7 @@
         public function getConnection(){
             $this -> conn = null;
             try {
-                $this -> conn = new PDO("mysql:host = " . $this -> host . "; dbname ="
-                . $this -> username, $this -> password);
+                $this -> conn = new PDO("mysql:host = " . $this -> host . "; dbname =".$this->dbname, $this -> username, $this -> password);
             }catch(PDOException $exception){
                 echo "erro de conexão: " . $exception -> getMessage();
             }

@@ -52,7 +52,7 @@ class Usuario
         $stmt -> execute([$id]);
         return $stmt;
     }
-
+    //    abner
     public function ler(){
         $query = "SELECT * FROM " .$this -> table_name;
         $stmt = $this -> conn -> prepare($query);
