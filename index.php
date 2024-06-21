@@ -9,24 +9,19 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $Email = $_POST['$Email'];
         $Senha = $_POST('$Senha');
 
-        if($dados_Usuario = $Usuario->login(
-            $Senha, $Senha)){
-                
-                $_SESSION['Usuario_id'] =
-                 $dados_Usuario['id'];
-                header('Location:portal.php');
+        if($dados_Usuario = $Usuario->login($Senha, $Senha)){
+                $_SESSION["Usuario_id"] = $dados_Usuario["id"];
+                header("Location: portal.php");
                 exit();
-
             }else{
                 $mensagem_erro = "Credenciais então inválidas!";
             }
-       
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,14 +29,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 </head>
 <body>
     <div class="container">
-
+    <h1>Acesso</h1>
     <form method = "post">
 
-    <input type = "email" nome = "email" placeholder="insira o email" required>
-    <input type = "Password" nome=" senha"placeholder="Insira sua senha"required>
-
-    <input type ="submit" value = "entrar">
-    <p>não tem conta?<a href ="./Registrar.php"> aqui </a>  </p>
+    <input type = "email" name = "email" placeholder="insira o email" required>
+    <input type = "Password" name=" senha"placeholder="Insira sua senha"required>
+    <input type="submit" value = "entrar">
+    <p>não tem conta?<a href="./Registrar.php"> aqui </a>  </p>
 
     </form>
     <div classe="mensagem">
