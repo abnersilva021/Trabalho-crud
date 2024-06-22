@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['Usuario_id'])){
+if(!isset($_SESSION['usuario_id'])){
     header('Location: index.php');
     exit();
 }
-include_once './Config/config.php';
+include_once './Config/Config.php';
 include_once './classes/Usuario.php';
 
 $Usuario = new Usuario($db);
