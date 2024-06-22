@@ -4,24 +4,24 @@ session_start();
 include_once './Config/config.php';
 include_once './classes/Usuario.php';
 
-if(!isset($_SESSION['Usuario_id'])){
+if(!isset($_SESSION['usuario_id'])){
     header('Location: index.php');
     exit();
 }
-$Usuario = new Usuario($bd);
+$usuario = new Usuario($db);
 
 if(isset($_GET['deletar'])){
     $id = $_GET['deletar'];
-    $Usuario->deletar($id);
+    $usuario->deletar($id);
     header('Location: portal.php');
     exit();
 
 }
 
-$dados_Usuario = $Usuario->lerPorId($_SESSION['Usuario_id']);
-$nome_usuario = $dados_Usuario['Nome'];
+$dados_Usuario = $usuario->lerPorId($_SESSION['usuario_id']);
+$nome_usuario = $dados_Usuario['nome'];
 
-$dados = $Usuario->ler();
+$dados = $usuario->ler();
 
 function saudacao(){
     $hora = date('H');
@@ -35,23 +35,28 @@ function saudacao(){
         return "Boa noite";
     }
 }
-
-
-
+    // var_dump($usuario->lerPorId($_SESSION['usuario_id']));
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="banner">
+    <video autoplay muted loop>
+        <source src="https://cdn.pixabay.com/video/2022/10/10/134308-759254371_large.mp4" type="video/mp4">
+    </video>
+    <main class="container">
     <h1> <?php echo saudacao(). "," . $nome_usuario;?> ! </h1>
     <a href="logout.php">Logout</a>
+    <a href="Registrar.php"> | Cadastrar</a>
     <br>
-    <table border="1">
+    <table>
         <tr>
         <th>ID</th>
         <th>Nome</th>
@@ -61,20 +66,23 @@ function saudacao(){
         <th>Ações</th>
         </tr>
         <?php while($row = $dados->fetch(PDO::FETCH_ASSOC)) :?>
+            
             <tr>
-                <d><?php echo $row['id'];?></td>
-                <d><?php echo $row['nome'];?></td>
-                <d><?php echo ($row['sexo'] === 'M')? 'Masculino' : 'Feminino' ;?></td>
-                <d><?php echo $row['fone'];?></td>
-                <d><?php echo $row['email'];?></td>
+                <td><?php echo $row['id'];?></td>
+                <td><?php echo $row['nome'];?></td>
+                <td><?php echo ($row['sexo'] === 'M')? 'Masculino' : 'Feminino' ;?></td>
+                <td><?php echo $row['fone'];?></td>
+                <td><?php echo $row['email'];?></td>
                 <td>
 
-            <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-            <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
+            <a href="editar.php?id=<?php echo $row['id'];?>">Editar</a>
+            <a href="deletar.php?id=<?php echo $row['id'];?>">Deletar</a>
 
                 </td>
                 <?php endwhile; ?>
             </tr>
     </table>
+   </main>
+</div>
 </body>
 </html>
