@@ -47,10 +47,15 @@ function saudacao(){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="banner">
+    <br>
+    <br>
+    <h1 class="letra">Portal de Notícias</h1>
+    <br>
+    <br>
+    <!-- <div class="banner">
     <video autoplay muted loop>
-        <source src="https://cdn.pixabay.com/video/2022/10/10/134308-759254371_large.mp4" type="video/mp4">
-    </video>
+        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video> -->
     <main class="container">
     <h1> <?php echo saudacao(). "," . $nome_usuario;?> ! </h1>
     <a href="logout.php">Logout</a>
@@ -81,6 +86,8 @@ function saudacao(){
                 </td>
                 <?php endwhile; ?>
             </tr>
+            <br>
+            <br>
     </table>
    </main>
 </div>

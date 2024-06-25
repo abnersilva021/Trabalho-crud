@@ -3,8 +3,8 @@
     width: 500px;
     padding: 50px;
     margin: 125px auto;
-    /* border: 2px black solid; */
-    /* background-color: rgba(10, 228, 191, 0.233); */
+    border: 2px black solid; 
+    background-color: rgba(176, 179, 176, 0.37); 
     z-index: 1;
     position: relative;
     max-width: 1000px;
@@ -48,3 +48,11 @@ text-align: center;
     margin: 0 auto;
     text-align: center;
 } */
+
+.letra{
+    text-align: center;
+}
+.botaoo{
+    align-items: center;
+    
+}
