@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <body>
     <div class="banner">
     <video autoplay muted loop>
-        <source src="https://cdn.pixabay.com/video/2022/10/10/134308-759254371_large.mp4" type="video/mp4">
+        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
     </video>
     <main class="container">
     <h1>Adicionar Usuario</h1>

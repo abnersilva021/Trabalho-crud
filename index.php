@@ -26,23 +26,34 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Autenticação</title>
+    <title>Login</title>
 </head>
 <body>
-    <div class="banner">
+    <!-- <div class="banner">
     <video autoplay muted loop>
-        <source src="https://cdn.pixabay.com/video/2022/10/10/134308-759254371_large.mp4" type="video/mp4">
-    </video>
-
+        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video> -->
+    <br>
+    <br>
+    <br>
+    <h1 class="letra">Portal de Notícias</h1>
     <div class="container">
-    <h1>Acesso</h1>
+    <h1 class="letra">Acesso</h1>
     <form method = "post">
 
     <input type = "email" name = "email" placeholder="insira o email" required>
+    <br>
+    <br>
     <input type = "password" name="senha"placeholder="Insira sua senha"required>
+    <br>
+    <br>
     <input type="submit" value = "login">
-    <p>não tem conta?<a href="./Registrar.php"> aqui </a>  </p>
+    <p>NÃO TEM CONTA?<a href="./Registrar.php"> REGISTRE-SE AQUI </a>  </p>
+    <p>ESQUECEU A SENHA?<a href="./solicitar_recuperacao.php"> RECUPERE AQUI </a>  </p>
 
+    <br>
+    <br>
+    <br>
     </form>
     <div classe="mensagem">
         <?php
