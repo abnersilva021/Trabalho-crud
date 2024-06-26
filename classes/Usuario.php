@@ -45,10 +45,10 @@ class Usuario
     }
     
     public function ler(){
-        $query = "SELECT * FROM ".$this->table_name;
+        $query = "SELECT * FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
-        $stmt -> execute();
-        return $stmt;
+        $stmt->execute();
+         return $stmt;
     }
 
     public function lerPorId($id){

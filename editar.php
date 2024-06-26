@@ -33,9 +33,10 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<h1>Portal de Notícias</h1>
-
+<div class="banner">
+    <video autoplay muted loop>
+        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
     <div class="container">
     
         

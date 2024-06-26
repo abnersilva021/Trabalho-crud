@@ -8,8 +8,9 @@
     z-index: 1;
     position: relative;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 50px auto;
     text-align: center;
+    
 }
 table{
     display: flex;
@@ -49,10 +50,37 @@ text-align: center;
     text-align: center;
 } */
 
-.letra{
+/* .cabecario{
+ text-align: center;
+ padding-top: 5px;
+ position: fixed;
+ background-color: purple;
+ top: 0;
+ left: 0;
+ 
+ 
+} */
+
+header{
     text-align: center;
+ padding-top: 5px;
+ position: fixed;
+ background-color: rgba(108, 145, 110, 0.452);
+ top: 0;
+ left: 0;
+ padding-bottom: 0;
+height: 100px; 
+width: 100%;
 }
-.botaoo{
-    align-items: center;
-    
+
+.rodape{
+    text-align: center;
+    padding-top: 5px;
+    position: fixed;
+    background-color: rgba(108, 145, 110, 0.452);
+    top: 0;
+    left: 0;
+    padding-bottom: 0;
+   height: 100px; 
+   width: 100%;
 }
