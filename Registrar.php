@@ -24,10 +24,10 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="banner">
+    <!-- <div class="banner">
     <video autoplay muted loop>
         <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
+    </video> -->
     <main class="container">
     <h1>Adicionar Usuario</h1>
     <form method ="POST">

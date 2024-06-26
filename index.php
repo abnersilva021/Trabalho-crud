@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $senha = $_POST['senha'];
 
         if($dados_Usuario = $Usuario->login($email, $senha)){
-                $_SESSION["usuario_id"] = $dados_Usuario["id"];
+                $_SESSION['usuario_id'] = $dados_Usuario['id'];
                 header("Location: portal.php");
                 exit();
             }else{
@@ -29,17 +29,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <title>Login</title>
 </head>
 <body>
-    <!-- <div class="banner">
+    <div class="banner">
     <video autoplay muted loop>
         <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video> -->
-    <br>
-    <br>
-    <br>
-    <h1 class="letra">Portal de Notícias</h1>
+    </video>
     <div class="container">
-    <h1 class="letra">Acesso</h1>
-    <form method = "post">
+    <h1 class="letra">Login</h1>
+    <form method = "POST">
 
     <input type = "email" name = "email" placeholder="insira o email" required>
     <br>
@@ -63,9 +59,10 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         ?>
 
     </div>
+
 </div>
 </div>
 
-    
+    <!-- <footer>Criado por abner</footer> -->
 </body>
 </html>

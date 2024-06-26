@@ -10,22 +10,43 @@
 </head>
 
 <body>
-    <br>
-    <br>
-    <br>
+
+<header class="cab">
+
+<h1>O portal de noticia</h1>
+</header>
+
+<div class="banner">
+    <video autoplay muted loop>
+        <source src="https://static.vecteezy.com/ti/fotos-gratis/p2/25067755-4k-abstrato-natureza-fundo-foto.jpg" type="video/mp4">
+    </video>
+<div class="banner">
+   
+    
     <header>
 
-        <h1 class="letra">Portal de Notícias <br>
+       
 
-        <a href="index.php"><button>Login</button></a>
+        
         </h1>
+         
         <div class="container">
-           
+           <h1>Portal de Notícias <br>
+           <a href="index.php"><button>Login</button></a>
+         
+       
+
         </div>
 
     </header>
     
-    
+    <footer>
+        <div class="rodape">
+            rodape
+        </div>
+
+
+    </footer>
 </body>
 
 </html>
