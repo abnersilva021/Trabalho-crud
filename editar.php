@@ -33,10 +33,11 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="banner">
-    <video autoplay muted loop>
-        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
+
+<header >
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
     
         
@@ -68,10 +69,18 @@ if(isset($_GET['id'])){
                 <br>
                 <br>
                 <br>
-                <input type="submit" value="Atualizar">
+                <!-- <input type="submit" value="Atualizar"> -->
+                <button type="submit">Editar</button>
+
         </label>
 </form>
 </div>
    </div>
+
+   <footer>
+
+<h1>Criado por Abner</h1>
+ </footer>
+
 </body>
 </html>

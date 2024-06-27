@@ -23,7 +23,14 @@ if (isset($_GET['deletar'])) {
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
 $nome_usuario = $dados_usuario['nome'];
 // Obter dados dos usuários
-$dados = $usuario->ler();
+//$dados = $usuario->ler();
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
+
+// Obter dados dos usuários com filtros
+$dados = $usuario->ler($search, $order_by);
+
+
 // Função para determinar a saudação
 function saudacao() {
     $hora = date('H');
@@ -45,15 +52,37 @@ function saudacao() {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="banner">
-    <video autoplay muted loop>
-        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
+
+<header >
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
     <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
-    <a href="Registrar.php">Adicionar Usuário</a>
-    <a href="logout.php">Logout</a>
+    <a class="button" role="button" href="Registrar.php" >Adicionar Usuário</a>
+    <a href="logout.php" class="button" role="button">Login</a>
 <br>
+<br>
+
+<form method="GET">
+            <input type="text" name="search" placeholder="Pesquisar por nome ou email" value="<?php echo htmlspecialchars($search); ?>">
+            <label>
+                <br>
+                <input type="radio" name="order_by" value="" <?php if ($order_by == '') echo 'checked'; ?>> Normal
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="order_by" value="nome" <?php if ($order_by == 'nome') echo 'checked'; ?>> Ordem Alfabética
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="order_by" value="sexo" <?php if ($order_by == 'sexo') echo 'checked'; ?>> Sexo
+            </label>
+            <br>
+            <button type="submit">Pesquisar</button>
+           
+        </form>
+ <br>
     <table>
         <tr>
             <th>ID</th>
@@ -72,11 +101,20 @@ function saudacao() {
                 <td><?php echo $row['email']; ?></td>
                 <td>
                     <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                    <br>
+                    
                     <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
                 </td>
             </tr>
         <?php endwhile; ?>
 
     </table>
+
 </div></div></div>
+
+<footer>
+
+<h1>criador abner  ||  junho de 2024</h1>
+ </footer>
+
 </body> </html>
