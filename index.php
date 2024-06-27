@@ -29,21 +29,19 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <title>Login</title>
 </head>
 <body>
-    <div class="banner">
-    <video autoplay muted loop>
-        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
+    <header >
+        <h1>Portal de Notícias</h1>
+    </header>
     <div class="container">
     <h1 class="letra">Login</h1>
     <form method = "POST">
-
     <input type = "email" name = "email" placeholder="insira o email" required>
-    <br>
-    <br>
     <input type = "password" name="senha"placeholder="Insira sua senha"required>
     <br>
     <br>
-    <input type="submit" value = "login">
+    <!-- <input type="submit" value = "login"> -->
+    <button type="submit">login</button>
+
     <p>NÃO TEM CONTA?<a href="./Registrar.php"> REGISTRE-SE AQUI </a>  </p>
     <p>ESQUECEU A SENHA?<a href="./solicitar_recuperacao.php"> RECUPERE AQUI </a>  </p>
 
@@ -59,10 +57,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         ?>
 
     </div>
-
+ 
 </div>
 </div>
 
-    <!-- <footer>Criado por abner</footer> -->
+<footer>
+
+<h1 class="testo">criador abner  ||  junho de 2024</h1>
+ </footer>
 </body>
 </html>

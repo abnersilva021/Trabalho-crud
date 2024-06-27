@@ -24,10 +24,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <div class="banner">
-    <video autoplay muted loop>
-        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video> -->
+   
+<header >
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <main class="container">
     <h1>Adicionar Usuario</h1>
     <form method ="POST">
@@ -48,10 +49,14 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         <input type = "Password" name = "senha" placeholder= "senha" required>
         <br>
         <br>
-        <input type = "submit" value="Salvar">
-
+        <!-- <input type = "submit" value="Salvar"> -->
+        <button class="button">Salvar</button>
+    </form>
 </main>
 </div>
-    </form>
+<footer>
+
+<h1>criador abner  ||  junho de 2024</h1>
+ </footer>
 </body>
 </html>

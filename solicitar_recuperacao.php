@@ -26,20 +26,25 @@ $mensagem = 'E-mail não encontrado.';
 <title>Recuperar Senha</title>
 </head>
 <body>
-<div class="banner">
-    <video autoplay muted loop>
-        <source src="https://videos.pexels.com/video-files/4980049/4980049-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    </video>
+
+<header >
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
 <h1>Recuperar Senha</h1>
 <form method="POST">
 <label for="email">Email:</label>
 <input type="email" name="email" required><br><br>
-<input type="submit" value="Enviar">
+<input class="button" type="submit" value="Enviar">
 </form>
 <p><?php echo $mensagem; ?></p>
-<a href="index.php">Voltar</a>
+<a class="button" href="index.php">Voltar</a>
 </div>
-</div>
+
+<header >
+<h1>criador abner  ||  junho de 2024</h1>
+    </header>
+
 </body>
 </html>

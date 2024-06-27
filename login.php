@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,43 +11,25 @@
 </head>
 
 <body>
-
-<header class="cab">
-
-<h1>O portal de noticia</h1>
-</header>
-
-<div class="banner">
-    <video autoplay muted loop>
-        <source src="https://static.vecteezy.com/ti/fotos-gratis/p2/25067755-4k-abstrato-natureza-fundo-foto.jpg" type="video/mp4">
-    </video>
-<div class="banner">
-   
-    
-    <header>
-
-       
-
-        
+<header >
+        <h1>Portal de Notícias</h1><br>
+    </header>
+<div>
+    <div>
         </h1>
          
         <div class="container">
-           <h1>Portal de Notícias <br>
+           <h1>noticias <br>
            <a href="index.php"><button>Login</button></a>
-         
-       
-
         </div>
+    </div>
+</div>
 
-    </header>
-    
-    <footer>
-        <div class="rodape">
-            rodape
-        </div>
+<footer>
 
+<h1>criador abner  ||  junho de 2024</h1>
+ </footer>
 
-    </footer>
 </body>
 
 </html>
