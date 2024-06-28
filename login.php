@@ -13,6 +13,13 @@
 <body>
 <header >
         <h1>Portal de Notícias</h1><br>
+
+        <navigation>
+             <a class="botao" href="index.php">Login</a>
+        </navigation>
+       
+                   
+
     </header>
 <div>
     <div>
@@ -20,7 +27,6 @@
          
         <div class="container">
            <h1>noticias <br>
-           <a href="index.php"><button>Login</button></a>
         </div>
     </div>
 </div>

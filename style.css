@@ -131,3 +131,19 @@ textarea{
     border: 1px solid black;
     box-shadow: 1px 1px 1px black;
 }
+
+.botao{
+    background-color:rgb(221, 56, 63);
+    border: 0;
+    border-radius: 100px;
+    box-shadow: white;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 6px;
+    padding: 8px;
+    top:35%;
+    left: 85%;
+    position: absolute;
+    justify-content: center;
+
+}
