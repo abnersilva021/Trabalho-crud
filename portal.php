@@ -80,6 +80,11 @@ function saudacao() {
             </label>
             <br>
             <button type="submit">Pesquisar</button>
+            <br>
+            <br>
+
+            <a href="cad_noticia.php" class="button" role="button">noticia</a>
+
            
         </form>
  <br>

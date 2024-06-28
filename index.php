@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
 <footer>
 
-<h1 class="testo">criador abner  ||  junho de 2024</h1>
+<h1>criador abner  ||  junho de 2024</h1>
  </footer>
 </body>
 </html>
