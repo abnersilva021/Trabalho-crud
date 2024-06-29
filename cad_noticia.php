@@ -14,7 +14,7 @@ if (!isset($_SESSION['usuario_id'])) {
 ?> 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@ if (!isset($_SESSION['usuario_id'])) {
     </header>
 
 
-    <div class="container">
+    <div class="container-main">
 
         <h1>Cadastro de Notícias:</h1>
 

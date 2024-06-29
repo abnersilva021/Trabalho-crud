@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <header >
         <h1>Portal de Notícias</h1>
     </header>
-    <div class="container">
+    <div class="container-vap">
     <h1 class="letra">Login</h1>
     <form method = "POST">
     <input type = "email" name = "email" placeholder="insira o email" required>

@@ -9,17 +9,87 @@ body{
 .container{
    
     text-align: center;
-    width: 550px;
-    padding: 50px;
-    margin: 125px auto;
+    width: 300px;
+    padding: 20px;
+    margin: 80px auto;
     border: 2px black solid; 
     background-color: rgba(241, 188, 72, 0.253);
     z-index: 1;
     position: relative;
     max-width: 1000px;
     border-radius: 15px;
+
     
 }
+
+.container-box{
+    text-align: center;
+    width: 400px;
+    padding: 30px;
+    margin: 20px auto;
+    border: 2px black solid; 
+    background-color: rgba(241, 188, 72, 0.253);
+    z-index: 1;
+    position: relative;
+    max-width: 1000px;
+    border-radius: 15px;
+
+}
+
+.container-vap{
+    text-align: center;
+    width: 400px;
+    padding: 10px;
+    margin: 50px auto;
+    border: 2px black solid; 
+    background-color: rgba(241, 188, 72, 0.253);
+    z-index: 1;
+    position: relative;
+    max-width: 1000px;
+    border-radius: 15px;
+}
+
+.container-star{
+
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    margin: 40px auto;
+    border: 2px black solid; 
+    background-color: rgba(241, 188, 72, 0.253);
+    z-index: 1;
+    position: relative;
+    max-width: 1000px;
+    border-radius: 15px;
+
+}
+
+.container-los{
+    text-align: center;
+    width: 300px;
+    padding: 70px;
+    margin: 40px auto;
+    border: 2px black solid; 
+    background-color: rgba(241, 188, 72, 0.253);
+    z-index: 1;
+    position: relative;
+    max-width: 1000px;
+    border-radius: 15px;
+}
+
+.container-main{
+    text-align: center;
+    width: 300px;
+    padding: 70px;
+    margin: 20px auto;
+    border: 2px black solid; 
+    background-color: rgba(241, 188, 72, 0.253);
+    z-index: 1;
+    position: relative;
+    max-width: 1000px;
+    border-radius: 15px;
+}
+
 table{
     display: flex;
     justify-content: center;
@@ -28,7 +98,7 @@ table{
 th, tr, td{
     background-color: white;
     border: 1px solid black;
-    padding: 15px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -90,13 +160,15 @@ header{
 footer{
     text-align: center;
     box-shadow: 0px 0px 0px rgb(0, 0, 0);
-    position: relative;
     height: 100px;
     padding-bottom: 0;
     background-color: rgba(241, 188, 72, 0.253);
     width: 100%;
     padding-top: 10px;
     border: 2px black solid; 
+    z-index: 2;
+    left: 0;
+    bottom: 0;
 }
 
 .button{
@@ -146,4 +218,19 @@ textarea{
     position: absolute;
     justify-content: center;
 
+}
+
+.footer{
+    text-align: center;
+    box-shadow: 0px 0px 0px rgb(0, 0, 0);
+    height: 100px;
+    padding-bottom: 0;
+    background-color: rgba(241, 188, 72, 0.253);
+    width: 100%;
+    padding-top: 10px;
+    border: 2px black solid; 
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    
 }
