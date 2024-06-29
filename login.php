@@ -1,3 +1,21 @@
+<?php
+session_start();
+include_once './Config/Config.php';
+include_once './classes/Noticias.php';
+$noticias = new Noticias($db);
+
+if (isset($_GET['deletar'])) {
+    $id = $_GET['deletar'];
+    $usuario->deletar($id);
+    header('Location: login.php');
+    exit();
+}
+
+$dados = $noticias->ler();
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,30 +29,38 @@
 </head>
 
 <body>
-<header >
+    <header>
+
         <h1>Portal de Notícias</h1><br>
 
         <navigation>
-             <a class="botao" href="index.php">Login</a>
+            <a class="botao" href="index.php">Login</a>
         </navigation>
-       
-                   
 
     </header>
-<div>
-    <div>
-        </h1>
-         
-        <div class="container">
-           <h1>noticias <br>
-        </div>
+
+    <div class="container">
+
+
+        <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+            <div class="box">
+                <h2> <?php echo $row['titulo']; ?> </h2>
+                <h3><?php echo $row['noticia']; ?></h3>
+                <button><a href="deletarnot.php?id=<?php echo $row['idnot']; ?>">Deletar</a></button>
+                <h4> Data: <?php echo $row['data']; ?></h4>
+
+
+            </div>
+        <?php endwhile; ?>
     </div>
-</div>
+    <div>
 
-<footer>
+    </div>
 
-<h1>criador abner  ||  junho de 2024</h1>
- </footer>
+    <div class="footer">
+
+        <h1>criador abner || junho de 2024</h1>
+    </div>
 
 </body>
 

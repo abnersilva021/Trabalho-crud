@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $usuario->registrar($nome, $sexo, $fone, $email, $senha);
-    header("Location: portal.php");
+    header("Location: index.php");
     exit();
 }
 
@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         <h1>Portal de Notícias</h1>
     </header>
 
-    <main class="container">
+    <main class="container-star">
     <h1>Adicionar Usuario</h1>
     <form method ="POST">
         <input type = "text" name = "nome" placeholder= "nome" required>

@@ -57,7 +57,7 @@ function saudacao() {
         <h1>Portal de Notícias</h1>
     </header>
 
-    <div class="container">
+    <div class="container-box">
     <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
     <a class="button" role="button" href="Registrar.php" >Adicionar Usuário</a>
     <a href="logout.php" class="button" role="button">Login</a>

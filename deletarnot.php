@@ -9,13 +9,13 @@ include_once './Config/Config.php';
 include_once './classes/Usuario.php';
 include_once './classes/Noticias.php';
 
-$Usuario = new Usuario($db);
+
+$noticias = new Noticias($db);
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $Usuario->deletar($id);
-    header('Location: portal.php');
+    $noticias->deletar($id);
+    header('Location: cad_noticia.php');
     exit();
 }
-
 
 ?>
