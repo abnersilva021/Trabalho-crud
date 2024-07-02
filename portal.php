@@ -22,13 +22,14 @@ if (isset($_GET['deletar'])) {
 // Obter dados do usuário logado
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
 $nome_usuario = $dados_usuario['nome'];
+$idusu = $dados_usuario['id'];
 // Obter dados dos usuários
 //$dados = $usuario->ler();
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
 
 // Obter dados dos usuários com filtros
-$dados = $usuario->ler($search, $order_by);
+$dados = $usuario->lerPorId($idusu);
 
 
 // Função para determinar a saudação
@@ -60,7 +61,7 @@ function saudacao() {
     <div class="container-box">
     <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
     <a class="button" role="button" href="Registrar.php" >Adicionar Usuário</a>
-    <a href="logout.php" class="button" role="button">Login</a>
+    <a href="login.php" class="button" role="button">Login</a>
 <br>
 <br>
 
@@ -82,9 +83,10 @@ function saudacao() {
             <button type="submit">Pesquisar</button>
             <br>
             <br>
-
-            <a href="cad_noticia.php" class="button" role="button">noticia</a>
-
+            <a href="cad_noticia.php" class="button" role="button">Cadastrar Notícias</a>
+            
+            
+            <a href="noticias.php" class="button" role="button">Notícias</a>
            
         </form>
  <br>
@@ -97,21 +99,20 @@ function saudacao() {
             <th>Email</th>
             <th>Ações</th>
         </tr>
-        <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+        
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['nome']; ?></td>
-                <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
-                <td><?php echo $row['fone']; ?></td>
-                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $dados['id']; ?></td>
+                <td><?php echo $dados['nome']; ?></td>
+                <td><?php echo ($dados['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
+                <td><?php echo $dados['fone']; ?></td>
+                <td><?php echo $dados['email']; ?></td>
                 <td>
-                    <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                    <a href="editar.php?id=<?php echo $dados['id']; ?>">Editar</a>
                     <br>
                     
-                    <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
+                    <a href="deletar.php?id=<?php echo $dados['id']; ?>">Deletar</a>
                 </td>
             </tr>
-        <?php endwhile; ?>
 
     </table>
 

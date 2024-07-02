@@ -69,7 +69,7 @@ class Noticias
 
     
     public function lerPorId($id){
-        $query = "SELECT * FROM ".$this->table_name." WHERE id=?";
+        $query = "SELECT * FROM ".$this->table_name." WHERE idnot=?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);

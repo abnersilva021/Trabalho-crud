@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include_once './Config/Config.php';
@@ -11,7 +12,7 @@ if (isset($_GET['deletar'])) {
     exit();
 }
 
-$dados = $noticias->ler();
+$dados = $noticias->lerPorId($_SESSION ['usuario_id']);
 ?>
 
 
@@ -33,9 +34,7 @@ $dados = $noticias->ler();
 
         <h1>Portal de Notícias</h1><br>
 
-        <navigation>
-            <a class="botao" href="login.php">Login</a>
-        </navigation>
+       
 
     </header>
 

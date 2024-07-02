@@ -1,67 +1,69 @@
 <?php
 session_start();
 include_once './Config/Config.php';
-include_once './classes/Noticias.php';
-$noticias = new Noticias($db);
+include_once './classes/Usuario.php';
 
-if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $usuario->deletar($id);
-    header('Location: login.php');
-    exit();
+$Usuario = new Usuario($db);
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    if(isset($_POST['email'])){
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+
+        if($dados_Usuario = $Usuario->login($email, $senha)){
+                $_SESSION['usuario_id'] = $dados_Usuario['id'];
+                header("Location: portal.php");
+                exit();
+            }else{
+                $mensagem_erro = "Credenciais então inválidas!";
+            }
+    }
 }
-
-$dados = $noticias->ler();
 ?>
 
-
-
-
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultório</title>
     <link rel="stylesheet" href="style.css">
+    <title>Login</title>
 </head>
-
 <body>
-    <header>
-
-        <h1>Portal de Notícias</h1><br>
-
-        <navigation>
-            <a class="botao" href="index.php">Login</a>
-        </navigation>
-
+    <header >
+        <h1>Portal de Notícias</h1>
     </header>
+    <div class="container-vap">
+    <h1 class="letra">Login</h1>
+    <form method = "POST">
+    <input type = "email" name = "email" placeholder="insira o email" required>
+    <input type = "password" name="senha"placeholder="Insira sua senha"required>
+    <br>
+    <br>
+    <!-- <input type="submit" value = "login"> -->
+    <button type="submit">login</button>
 
-    <div class="container">
+    <p>NÃO TEM CONTA?<a href="./Registrar.php"> REGISTRE-SE AQUI </a>  </p>
+    <p>ESQUECEU A SENHA?<a href="./solicitar_recuperacao.php"> RECUPERE AQUI </a>  </p>
 
+    <br>
+    <br>
+    <br>
+    </form>
+    <div classe="mensagem">
+        <?php
+        if(isset($mensagem_erro)){
+            echo'<p>' .$mensagem_erro.'</p>';
+        }
+        ?>
 
-        <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-            <div class="box">
-                <h2> <?php echo $row['titulo']; ?> </h2>
-                <h3><?php echo $row['noticia']; ?></h3>
-                <button><a href="deletarnot.php?id=<?php echo $row['idnot']; ?>">Deletar</a></button>
-                <h4> Data: <?php echo $row['data']; ?></h4>
-
-
-            </div>
-        <?php endwhile; ?>
     </div>
-    <div>
+ 
+</div>
+</div>
 
-    </div>
+<footer>
 
-    <div class="footer">
-
-        <h1>criador abner || junho de 2024</h1>
-    </div>
-
+<h1>criador abner  ||  junho de 2024</h1>
+ </footer>
 </body>
-
 </html>
