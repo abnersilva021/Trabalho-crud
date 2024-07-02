@@ -14,8 +14,7 @@ $noticias = new Noticias($db);
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $noticias->deletar($id);
-    header('Location: cad_noticia.php');
+    header('Location: portal.php');
     exit();
 }
 
-?>

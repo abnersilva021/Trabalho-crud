@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $usuario->registrar($nome, $sexo, $fone, $email, $senha);
-    header("Location: index.php");
+    header("Location: login.php");
     exit();
 }
 
@@ -51,6 +51,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         <br>
         <!-- <input type = "submit" value="Salvar"> -->
         <button class="button">Salvar</button>
+
     </form>
 </main>
 </div>
