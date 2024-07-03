@@ -82,7 +82,7 @@ class Usuario
         $query = "SELECT * FROM ".$this->table_name." WHERE id=?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return$stmt->fetch(PDO::FETCH_ASSOC);
     }
     public function criar($nome, $sexo, $fone, $email, $senha){
         return $this->registrar($nome, $sexo, $fone, $email, $senha);

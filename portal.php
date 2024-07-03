@@ -1,126 +1,151 @@
 <?php
 session_start();
-include_once './config/config.php';
+include_once './Config/Config.php';
 include_once './classes/Usuario.php';
+include_once './classes/Noticias.php';
 
-
-// Verificar se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
-    header('Location: index.php');
+    header('Location: login.php');
     exit();
 }
-$usuario = new Usuario($db);
 
-
-// Processar exclusão de usuário
 if (isset($_GET['deletar'])) {
     $id = $_GET['deletar'];
     $usuario->deletar($id);
     header('Location: portal.php');
     exit();
 }
-// Obter dados do usuário logado
+
+if (isset($_GET['deletar'])) {
+    $idnot = $_GET['deletar'];
+    $noticias->deletar($idnot);
+    header('Location: index.php');
+    exit();
+}
+
+$usuario = new Usuario($db);
+
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
+
 $nome_usuario = $dados_usuario['nome'];
-$idusu = $dados_usuario['id'];
-// Obter dados dos usuários
-//$dados = $usuario->ler();
+
+$dados = $usuario->ler();
+
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
 
-// Obter dados dos usuários com filtros
-$dados = $usuario->lerPorId($idusu);
+$dados = $usuario->ler($search, $order_by);
 
+$noticias = new Noticias($db);
 
-// Função para determinar a saudação
-function saudacao() {
+$dadosnot = $noticias->lerPorIdusu($_SESSION['usuario_id']);
+
+date_default_timezone_set('America/Sao_Paulo');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+function saudacao()
+{
     $hora = date('H');
     if ($hora >= 6 && $hora < 12) {
         return "Bom dia";
-    } elseif ($hora >= 12 && $hora < 18) {
+    } else if ($hora >= 12 && $hora < 18) {
         return "Boa tarde";
     } else {
         return "Boa noite";
     }
 }
-
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
+
 <body>
 
-<header >
+    <header>
         <h1>Portal de Notícias</h1>
     </header>
 
-    <div class="container-box">
-    <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
-    <a class="button" role="button" href="Registrar.php" >Adicionar Usuário</a>
-    <a href="login.php" class="button" role="button">Login</a>
-<br>
-<br>
 
-<form method="GET">
-            <input type="text" name="search" placeholder="Pesquisar por nome ou email" value="<?php echo htmlspecialchars($search); ?>">
-            <label>
-                <br>
-                <input type="radio" name="order_by" value="" <?php if ($order_by == '') echo 'checked'; ?>> Normal
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="order_by" value="nome" <?php if ($order_by == 'nome') echo 'checked'; ?>> Ordem Alfabética
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="order_by" value="sexo" <?php if ($order_by == 'sexo') echo 'checked'; ?>> Sexo
-            </label>
-            <br>
-            <button type="submit">Pesquisar</button>
-            <br>
-            <br>
-            <a href="cad_noticia.php" class="button" role="button">Cadastrar Notícias</a>
-            
-            
-            <a href="noticias.php" class="button" role="button">Notícias</a>
-           
+
+    <div class="container">
+
+        <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
+
+        <br>
+
+        <a class="button" role="button" href="editar.php?id=<?php echo $_SESSION['usuario_id']; ?>">Editar Usuario</a>
+        <br>
+        <br>
+        <a class="button" role="button" href="login.php">Logout</a>
+
+    </div>
+
+
+    <div class="container">
+
+        <h1>Cadastro de Notícias:</h1>
+
+        <form method="POST">
+            <label for="noticia">Escreva uma notícia:</label>
+            <br><br>
+
+            <label for="titulo">Titulo:</label>
+            <input type="text" name="titulo">
+            <br><br>
+            <textarea id="noticia" name="noticia" rows="5" cols="33" placeholder="Escreva uma notícia"></textarea>
+            <br><br>
+            <input class="button" type="submit" value="Salvar">
         </form>
- <br>
-    <table>
+
+    </div>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['titulo']) && isset($_POST['noticia'])) {
+            $noticias = new Noticias($db);
+            $idusu = $_SESSION['usuario_id'];
+            $data = date("Y-m-d");
+            $titulo = $_POST['titulo'];
+            $noticia = $_POST['noticia'];
+            $noticias->registrar($idusu, $data, $titulo, $noticia);
+            header('Location: portal.php');
+            exit();
+        }
+    }
+    ?>
+
+
+    <?php while ($row = $dadosnot->fetch(PDO::FETCH_ASSOC)) : ?>
         <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Sexo</th>
-            <th>Fone</th>
-            <th>Email</th>
-            <th>Ações</th>
+            <div class="container">
+                <br><br>
+                <label>Titulo:</label>
+                <td><?php echo $row['titulo']; ?></td>
+                <br><br>
+                <label>Data:</label>
+                <td><?php echo $row['data']; ?></td>
+                <br><br>
+                <label>Noticia:</label>
+                <br><br>
+                <td><?php echo $row['noticia']; ?></td>
+                <br><br>
+                <a class="button" href="deletarnot.php?idnot=<?php echo $row['idnot'] ?>">Deletar</a>
+                <a class="button" href="editar_noticia.php?idnot=<?php echo $row['idnot'] ?>">Editar</a>
+            </div>
         </tr>
-        
-            <tr>
-                <td><?php echo $dados['id']; ?></td>
-                <td><?php echo $dados['nome']; ?></td>
-                <td><?php echo ($dados['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
-                <td><?php echo $dados['fone']; ?></td>
-                <td><?php echo $dados['email']; ?></td>
-                <td>
-                    <a href="editar.php?id=<?php echo $dados['id']; ?>">Editar</a>
-                    <br>
-                    
-                    <a href="deletar.php?id=<?php echo $dados['id']; ?>">Deletar</a>
-                </td>
-            </tr>
+    <?php endwhile; ?>
 
-    </table>
+</body>
 
-</div></div></div>
-
-<footer>
-
-<h1>criador abner  ||  junho de 2024</h1>
- </footer>
-
-</body> </html>
+</html>

@@ -46,7 +46,7 @@ $dados = $noticias->lerPorId($_SESSION ['usuario_id']);
                 <h2> <?php echo $row['titulo']; ?> </h2>
                 <h3><?php echo $row['noticia']; ?></h3>
                 <h4> Data: <?php echo $row['data']; ?></h4>
-
+                
 
             </div>
         <?php endwhile; ?>
