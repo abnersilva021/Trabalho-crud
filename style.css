@@ -93,6 +93,19 @@ body{
     border-radius: 15px;
 }
 
+.container-botao{
+    text-align: center;
+    width: 300px;
+    padding: 70px;
+    margin: 20px auto;
+    border: 2px black solid; 
+    background-color: rgba(241, 188, 72, 0.253);
+    z-index: 1;
+    position: relative;
+    max-width: 1000px;
+    border-radius: 15px;
+}
+
 table{
     display: flex;
     justify-content: center;

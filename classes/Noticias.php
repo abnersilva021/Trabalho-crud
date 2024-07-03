@@ -21,10 +21,10 @@ class Noticias
     
    
 
-    public function atualizar($idnot, $idusu, $data, $titulo, $noticia ){
-        $query = "UPDATE ".$this->table_name." SET data=?, titulo=?, noticia=?, idnot=? WHERE idusu=?";
+    public function atualizar($idnot, $idusu, $titulo, $noticia ){
+        $query = "UPDATE ".$this->table_name." SET titulo=?, noticia=?, idnot=? WHERE idusu=?";
         $stmt = $this->conn->prepare($query);
-        $stmt->execute ([$idnot, $idusu, $data, $titulo, $noticia]);
+        $stmt->execute ([$titulo, $noticia, $idnot, $idusu]);
         return $stmt;
     }
 
@@ -73,6 +73,13 @@ class Noticias
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function lerPorIdusu($idusu){
+        $query = "SELECT * FROM ".$this->table_name." WHERE idusu=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$idusu]);
+        return $stmt;
     }
     public function criar($idusu, $data, $titulo, $noticia){
         return $this->registrar($idusu, $data, $titulo, $noticia);

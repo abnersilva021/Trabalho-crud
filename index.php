@@ -39,11 +39,11 @@ $dados = $noticias->ler();
 
     </header>
 
-    <div class="container">
+    
 
 
         <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-            <div class="box">
+            <div class="container">
                 <h2> <?php echo $row['titulo']; ?> </h2>
                 <h3><?php echo $row['noticia']; ?></h3>
                 <h4> Data: <?php echo $row['data']; ?></h4>
@@ -51,10 +51,8 @@ $dados = $noticias->ler();
 
             </div>
         <?php endwhile; ?>
-    </div>
-    <div>
-
-    </div>
+    
+    
 
     <div class="footer">
 

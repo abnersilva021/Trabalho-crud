@@ -11,9 +11,9 @@ include_once './classes/Noticias.php';
 
 
 $noticias = new Noticias($db);
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $noticias->deletar($id);
+if(isset($_GET['idnot'])){
+    $idnot = $_GET['idnot'];
+    $noticias->deletar($idnot);
     header('Location: portal.php');
     exit();
 }
